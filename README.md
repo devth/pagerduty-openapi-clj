@@ -44,11 +44,11 @@ openapi-generator generate -i openapi.json -c gen-config.json -l clojure -o clie
 ### Install client locally
 
 ```bash
-cd client && lein install && cd ../
+cd client && lein install; cd ..
 ```
 
 ### Deploy to Clojars
 
 ```bash
-cd client && lein deploy; cd ../
+cd client && lein deploy; cd ..
 ```

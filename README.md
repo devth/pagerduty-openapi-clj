@@ -10,15 +10,35 @@ specification](https://api-reference.pagerduty.com/output.json) and the
 [pager-duty-api "2.0"]
 ```
 
-## Prerequisites
+## Usage
+
+```clojure
+(require '[pager-duty-api.core :refer [with-api-context set-api-context]])
+
+;; set a token. Note the required "Token token=" prefix.
+(def my-pagerduty-token "xxxyyyzzz")
+
+(set-api-context
+  {:auths {"api_key" (str "Token token=" my-pagerduty-token)}})
+
+;; try calling an API
+(require '[pager-duty-api.api.teams :as teams])
+
+;; get all teams
+(teams/teams-get)
+;; get teams matching a query
+(teams/teams-get {:query "frontend"})
+```
+
+## Dev
+
+### Prerequisites
 
 ```bash
 brew install openapi-generator
 ```
 
-## Usage
-
-Explore the `openapi-generator` CLI:
+## Explore the `openapi-generator` CLI
 
 ```bash
 openapi-generator help
